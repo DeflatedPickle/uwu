@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+## Contents
+- [Comments](#comments)
+  - [Inline](#inline)
+  - [Block](#block)
+    - [Docstring](#docstring)
+- [File Formatting](#file-formatting)
 
-You can use the [editor on GitHub](https://github.com/DeflatedPickle/uwu/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Comments
+#### Inline
+Inline comments should start at the current tab level if they are the only thing on the line;
+```kotlin
+// A function
+fun my_func() {
+  // Prints "Hello, World!"
+  print("Hello, World!")
+}
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DeflatedPickle/uwu/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+But if they follow code, they should follow after two spaces;
+```kotlin
+fun my_func() {  // A function
+  print("Hello, World!")  // Prints "Hello, World!"
+}
+```
+#### Block
+Block comments should, like inline comments, start at the current tab level if they're on their own. Each line of the comment should start with the second character, if the syntax spans two characters, to align each line. The ending syntax should also be indented by a space, if the syntax spans two characters, to align them.
+```kotlin
+/*
+ * A function.
+ */
+fun my_func() {
+}
+```
+##### Docstring
+Docstrings, are similar to normal block comments, however the beginning syntax ends with two of the second character.
+```kotlin
+/**
+ * Does nothing.
+ */
+fun my_func() {
+}
+```
+### File Formatting
+Files should be formatted with tabs, which should be as wide as four spaces.
