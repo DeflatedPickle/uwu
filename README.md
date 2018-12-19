@@ -3,6 +3,7 @@
 - [File Formatting](#file-formatting)
 - [Comments](#comments)
   - [Inline](#inline)
+    - [Trailing](#trailing)
   - [Block](#block)
     - [Docstring](#docstring)
 - [Variables](#variables)
@@ -17,6 +18,7 @@ This is a simple style guide to follow when writing code. It serves as any style
 Files should be formatted with tabs, which should be as wide as four spaces.
 
 ### Comments
+Comments should not come after syntax that creates a block. Either they are placed before the block, to describe it. Or placed inside the block, to describe other lines.
 #### Inline
 Inline comments should start at the current tab level if they are the only thing on the line;
 ```kotlin
@@ -26,9 +28,10 @@ fun my_func() {
   print("Hello, World!")
 }
 ```
-But if they follow code, they should follow after two spaces;
+##### Trailing
+Trailing comments should follow two spaces.
 ```kotlin
-fun my_func() {  // A function
+fun my_func() {
   print("Hello, World!")  // Prints "Hello, World!"
 }
 ```
@@ -50,6 +53,7 @@ Docstrings, are similar to normal block comments, however the beginning syntax e
 fun myFunc() {
 }
 ```
+---
 
 ### Variables
 If variables are only used once, they should be defined as constant to save memory. The type of the variable should also be specified on creation, even if the language doesn't require it.
@@ -64,8 +68,21 @@ Constant variable names should be in all-caps, like you forgot to turn off caps-
 ```kotlin
 val MY_VARIABLE: String = "Hello, World!"
 ```
+---
 
 ### Functions
+Functions should always have an attached docstring describing what it; does, returns and what the parameters do. The return type of functions should always be specified, and the parameter types should always be specified. If the language allows for it, resonable default values for parameters should be specified if the parameter is not crutial to the users choice.
+```kotlin
+/*
+ * Prints "Hello" followed by a given name.
+ * @param name The name to say 'Hello' to.
+ */
+fun myFunc(name: String): Unit {
+  println("Hello, ${name}!")
+}
+```
+---
 
 ### Classes
 #### Methods
+---
