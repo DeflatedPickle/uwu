@@ -13,9 +13,11 @@
 
 ### Introduction
 This is a simple style guide to follow when writing code. It serves as any style guide, to format code in a way that people want to read. Of course, like most style guides, its contents is trivial and most will dislike certain parts, as-is with any style guide.
+---
 
 ### File Formatting
 Files should be formatted with tabs, which should be as wide as four spaces.
+---
 
 ### Comments
 Comments should not come after syntax that creates a block. Either they are placed before the block, to describe it. Or placed inside the block, to describe other lines.
