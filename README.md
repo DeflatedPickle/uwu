@@ -1,14 +1,17 @@
 ## Contents
 - [Introduction](#introduction)
 - [File Formatting](#file-formatting)
+- [Line Ending](#line-ending)
 - [Comments](#comments)
   - [Inline](#inline)
     - [Trailing](#trailing)
   - [Block](#block)
+    - [Embedded](#embedded)
     - [Docstring](#docstring)
 - [Variables](#variables)
 - [Functions](#functions)
 - [Classes](#classes)
+  - [Properties](#properties)
   - [Methods](#methods)
 
 ### Introduction
@@ -25,13 +28,18 @@ Files should be formatted with tabs, which should be as wide as four spaces.
 
 ---
 
+### Line Ending
+If the language requires syntax to end a line, use it. If it doesn't, don't.
+
+---
+
 ### Comments
 Comments should not come after syntax that creates a block. Either they are placed before the block, to describe it. Or placed inside the block, to describe other lines.
-#### Inline
-Inline comments should start at the current tab level if they are the only thing on the line;
+#### Line
+Line comments should start at the current tab level if they are the only thing on the line.
 ```kotlin
 // A function
-fun my_func() {
+fun myFunc() {
   // Prints "Hello, World!"
   println("Hello, World!")
 }
@@ -39,7 +47,7 @@ fun my_func() {
 ##### Trailing
 Trailing comments should follow two spaces.
 ```kotlin
-fun my_func() {
+fun myFunc() {
   println("Hello, World!")  // Prints "Hello, World!"
 }
 ```
@@ -52,11 +60,20 @@ Block comments should, like inline comments, start at the current tab level if t
 fun myFunc() {
 }
 ```
+##### Embedded
+Embedded comments should be padded on the outside by two spaces and on the inside by one.
+```kotlin
+fun myFunc(name:  /* Int */  String) {
+  println("Hello, ${name}!")
+}
+```
 ##### Docstring
-Docstrings, are similar to normal block comments, however the beginning syntax ends with two of the second character.
+Docstrings, are similar to normal block comments, however the beginning syntax ends with two of the second character. They should include all parameters, the return type and provide see tags to any classes referenced that aren't provided by the language.
 ```kotlin
 /**
  * Does nothing.
+ *
+ * @return Nothing
  */
 fun myFunc() {
 }
@@ -81,9 +98,11 @@ val MY_VARIABLE: String = "Hello, World!"
 ### Functions
 Functions should always have an attached docstring describing what it; does, returns and what the parameters do. The return type of functions should always be specified, and the parameter types should always be specified. If the language allows for it, resonable default values for parameters should be specified if the parameter is not crutial to the users choice.
 ```kotlin
-/*
+/**
  * Prints "Hello" followed by a given name.
- * @param name The name to say 'Hello' to.
+ *
+ * @param  name The name to say 'Hello' to
+ * @return      Nothing
  */
 fun myFunc(name: String): Unit {
   println("Hello, ${name}!")
@@ -92,5 +111,24 @@ fun myFunc(name: String): Unit {
 ---
 
 ### Classes
+Classes, like functions, should always have a docstring to describe it and what it's used for. They should be named with each new word starting with an uppercase letter, with the rest of the word being lowercase.
+If the class is public, it must provide a public constructor.
+```kotlin
+/**
+ * Creates a vector of two values.
+ */
+open class Vector2<T> {
+  /**
+   * Constructs an instance, providing the x and y.
+   * 
+   * @param x Where the point is on the X axis
+   * @param y Where the point is on the Y axis
+   */
+  constructor(val x: T, val y: T) {
+  }
+}
+```
+#### Properties
+
 #### Methods
 ---
