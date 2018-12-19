@@ -14,6 +14,10 @@
 ### Introduction
 This is a simple style guide to follow when writing code. It serves as any style guide, to format code in a way that people want to read. Of course, like most style guides, its contents is trivial and most will dislike certain parts, as-is with any style guide.
 
+For the rest of this page, I'll be using the Kotlin language to show examples, but I'll (hopefully) explain in a way that applies to any language, with esoteric ones being an exception.
+
+This style guide should **not** be used as a replacement if the language has an official style guide. People know that style, so use it. The same goes for hugely popular style guides that aren't official to the language but are to the community.
+
 ---
 
 ### File Formatting
@@ -29,14 +33,14 @@ Inline comments should start at the current tab level if they are the only thing
 // A function
 fun my_func() {
   // Prints "Hello, World!"
-  print("Hello, World!")
+  println("Hello, World!")
 }
 ```
 ##### Trailing
 Trailing comments should follow two spaces.
 ```kotlin
 fun my_func() {
-  print("Hello, World!")  // Prints "Hello, World!"
+  println("Hello, World!")  // Prints "Hello, World!"
 }
 ```
 #### Block
