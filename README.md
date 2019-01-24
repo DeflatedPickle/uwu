@@ -13,9 +13,10 @@
 - [Classes](#classes)
   - [Properties](#properties)
   - [Methods](#methods)
+- [Enums](#enums)
 
 ### Introduction
-This is a simple style guide to follow when writing code. It serves as any style guide, to format code in a way that people want to read. Of course, like most style guides, its contents is trivial and most will dislike certain parts, as-is with any style guide.
+This is a simple style guide to follow when writing code. It serves as any style guide does, to format code in a way that people want to read. Of course, like most style guides, its contents is trivial and most people will dislike certain parts, as is with any style guide.
 
 For the rest of this page, I'll be using the Kotlin language to show examples, but I'll (hopefully) explain in a way that applies to any language, with esoteric ones being an exception.
 
@@ -36,7 +37,7 @@ If the language requires syntax to end a line, use it. If it doesn't, don't.
 ### Comments
 Comments should not come after syntax that creates a block. Either they are placed before the block, to describe it. Or placed inside the block, to describe other lines.
 #### Line
-Line comments should start at the current tab level if they are the only thing on the line.
+Line comments should start at the current tab level if they are the only thing on the line, as it's easier to gather the context if the code and comments have the same indentation.
 ```kotlin
 // A function
 fun myFunc() {
@@ -45,7 +46,7 @@ fun myFunc() {
 }
 ```
 ##### Trailing
-Trailing comments should follow two spaces.
+Trailing comments should follow two spaces, as looks bad, one can be easy to miss and three is too many.
 ```kotlin
 fun myFunc() {
   println("Hello, World!")  // Prints "Hello, World!"
@@ -81,9 +82,9 @@ fun myFunc() {
 ---
 
 ### Variables
-If variables are only used once, they should be defined as constant to save memory. The type of the variable should also be specified on creation, even if the language doesn't require it.
+If a variable is only used once, it should be defined as constant to save memory. The type of the variable should also be specified on creation, even if the language doesn't require it.
 #### Mutable
-Mutable variable names should begin with a lowercase letter, with uppercase letters for the beginning of each word after the first, with words seperated by underscores.
+Mutable variable names should begin with a lowercase letter, with uppercase letters for the beginning of each new word after the first, with words seperated by underscores.
 ```kotlin
 var my_variable: String = "Hello, World!"
 my_variable = "Good bye, World!"
@@ -96,7 +97,7 @@ val MY_VARIABLE: String = "Hello, World!"
 ---
 
 ### Functions
-Functions should always have an attached docstring describing what it; does, returns and what the parameters do. The return type of functions should always be specified, and the parameter types should always be specified. If the language allows for it, resonable default values for parameters should be specified if the parameter is not crutial to the users choice.
+Functions should always have an attached docstring describing what it; does, returns and what the parameters do -- but only if the source is open. The return type of functions should always be specified, and the parameter types should always be specified. If the language allows for it, resonable default values for parameters should be specified if the parameter is not crutial to the users choice.
 ```kotlin
 /**
  * Prints "Hello" followed by a given name.
@@ -111,7 +112,7 @@ fun myFunc(name: String): Unit {
 ---
 
 ### Classes
-Classes, like functions, should always have a docstring to describe it and what it's used for. They should be named with each new word starting with an uppercase letter, with the rest of the word being lowercase.
+Classes, like functions, should always have a docstring to describe it and what it's used for, if the source is open, even if the class is private or package-private. They should be named with each new word starting with an uppercase letter, with the rest of the word being lowercase.
 If the class is public, it must provide a public constructor.
 ```kotlin
 /**
@@ -131,4 +132,17 @@ open class Vector2<T> {
 #### Properties
 
 #### Methods
+
+#### Enums
+Enums, like classes and functions, should always have a docstring to describe it, if the source is open, even if the enum is private.
+```kotlin
+/**
+ * An enum for the primary colours.
+ */
+enum class PrimaryColour {
+    RED,
+    YELLOW,
+    BLUE
+}
+```
 ---
