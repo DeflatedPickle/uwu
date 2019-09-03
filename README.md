@@ -39,7 +39,7 @@ Comments should not come after syntax that creates a block. Either they are plac
 #### Line
 Line comments should start at the current tab level if they are the only thing on the line, as it's easier to gather the context if the code and comments have the same indentation.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 // A function
 fun myFunc() {
@@ -48,7 +48,7 @@ fun myFunc() {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 # A function
 def myFunc():
@@ -61,7 +61,7 @@ Trailing comments don't look good. Don't use them.
 #### Block
 Block comments should, like inline comments, start at the current tab level if they're on their own. Each line of the comment should start with the second character, if the syntax spans two characters, to align each line. The ending syntax should also be indented by a space, if the syntax spans two characters, to align them.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 /*
  * A function.
@@ -70,7 +70,7 @@ fun myFunc() {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 #
 # A function.
@@ -81,7 +81,7 @@ def myFunc():
 ##### Embedded
 Embedded comments should be padded on the outside by two spaces and on the inside by one.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 fun myFunc(name:  /* Int */  String) {
   println("Hello, ${name}!")
@@ -90,7 +90,7 @@ fun myFunc(name:  /* Int */  String) {
 ##### Docstring
 Docstrings, are similar to normal block comments, unless the language has specific syntax/methods for docstrings, however the beginning syntax ends with two of the second character. They should include all parameters, the return type and provide see tags to any classes referenced that aren't provided by the language.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 /**
  * Does nothing.
@@ -101,7 +101,7 @@ fun myFunc() {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 def myFunc():
     """
@@ -118,13 +118,13 @@ If a variable is only used once, it should be defined as constant to save memory
 #### Mutable
 Mutable variable names should begin with a lowercase letter, with uppercase letters for the beginning of each new word after the first, with words seperated by underscores.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 var my_variable: String = "Hello, World!"
 my_variable = "Good bye, World!"
 ```
 
-**Python:**
+##### Python:
 ```python
 my_variable: str = "Hello, World!"
 my_variable = "Good bye, World!"
@@ -132,12 +132,12 @@ my_variable = "Good bye, World!"
 #### Constant
 Constant variable names should be in all-caps, like you forgot to turn off caps-lock, though actually, you wanted it on. Words, like mutable variable names, should be seperated by underscores.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 val MY_VARIABLE: String = "Hello, World!"
 ```
 
-**Python:**
+##### Python:
 ```python
 MY_VARIABLE: str = "Hello, World!"
 ```
@@ -146,7 +146,7 @@ MY_VARIABLE: str = "Hello, World!"
 ### Functions
 Functions should always have an attached docstring describing what it; does, returns and what the parameters do -- but only if the source is open. The return type of functions should always be specified, and the parameter types should always be specified. If the language allows for it, resonable default values for parameters should be specified if the parameter is not crutial to the users choice.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 /**
  * Prints "Hello" followed by a given name.
@@ -159,7 +159,7 @@ fun myFunc(name: String): Unit {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 def myFunc(name: str) -> None:
     """
@@ -176,7 +176,7 @@ def myFunc(name: str) -> None:
 Classes, like functions, should always have a docstring to describe it and what it's used for, if the source is open, even if the class is private or package-private. They should be named with each new word starting with an uppercase letter, with the rest of the word being lowercase.
 If the class is public, it must provide a public constructor.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 /**
  * Creates a vector of two values.
@@ -193,7 +193,7 @@ open class Vector2<T> {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 class Vector2(object):
    """
@@ -216,7 +216,7 @@ class Vector2(object):
 #### Enums
 Enums, like classes and functions, should always have a docstring to describe it, if the source is open, even if the enum is private.
 
-**Kotlin:**
+##### Kotlin:
 ```kotlin
 /**
  * An enum for the primary colours.
@@ -228,7 +228,7 @@ enum class PrimaryColour {
 }
 ```
 
-**Python:**
+##### Python:
 ```python
 from enum import Enum
 
