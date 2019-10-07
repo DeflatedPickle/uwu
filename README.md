@@ -1,7 +1,12 @@
 ## Contents
 - [Introduction](#introduction)
-- [File Formatting](#file-formatting)
-- [Line Ending](#line-ending)
+- [Packages](#packages)
+  - [Package Naming](#package-naming)
+- [Files](#files)
+  - [File Naming](#file-naming)
+  - [Main File](#main-file)
+  - [File Formatting](#file-formatting)
+  - [Line Ending](#line-ending)
 - [Comments](#comments)
   - [Inline](#inline)
     - [Trailing](#trailing)
@@ -24,18 +29,32 @@ This style guide should **not** be used as a replacement if the language has an 
 
 ---
 
-### File Formatting
-Files should be formatted with tabs, which should be as wide as four spaces.
+### Packages
+#### Package Naming
+Package names should be lowercase.
 
 ---
 
-### Line Ending
+### Files
+##### Main File
+A program should always have a main file, unless it's a script (then it's the only file).
+
+The main file of a program, unless containing an class/class-like object, should be named "`main`" (in lowercase). If it does contain a class or class-like object, that should be named "`Main`".
+
+##### File Naming
+Files should be named after what they contain, in the same case. For instance, if a file contains the class "`Foo`", the file should also be called "`Foo`". And if it contains a fuction called `fooBar`, the file should be named as such.
+
+#### File Formatting
+Files should be formatted with tabs, which should be as wide as four spaces.
+
+#### Line Ending
 If the language requires syntax to end a line, use it. If it doesn't, don't.
 
 ---
 
 ### Comments
 Comments should not come after syntax that creates a block. Either they are placed before the block, to describe it. Or placed inside the block, to describe other lines.
+
 #### Line
 Line comments should start at the current tab level if they are the only thing on the line, as it's easier to gather the context if the code and comments have the same indentation.
 
@@ -55,7 +74,8 @@ def myFunc():
     # Prints "Hello, World!"
     print("Hello, World!")
 ```
-##### Trailing
+
+#### Trailing
 Trailing comments don't look good. Don't use them.
 
 #### Block
@@ -78,15 +98,17 @@ fun myFunc() {
 def myFunc():
     pass
 ```
+
 ##### Embedded
-Embedded comments should be padded on the outside by two spaces and on the inside by one.
+Embedded/in-line comments should be padded on the inside and outside by one space.
 
 ##### Kotlin:
 ```kotlin
-fun myFunc(name:  /* Int */  String) {
+fun myFunc(name: /* Int */ String) {
   println("Hello, ${name}!")
 }
 ```
+
 ##### Docstring
 Docstrings, are similar to normal block comments, unless the language has specific syntax/methods for docstrings, however the beginning syntax ends with two of the second character. They should include all parameters, the return type and provide see tags to any classes referenced that aren't provided by the language.
 
@@ -111,12 +133,14 @@ def myFunc():
     """
     pass
 ```
+
 ---
 
 ### Variables
-If a variable is only used once, it should be defined as constant to save memory. The type of the variable should also be specified on creation, even if the language doesn't require it.
+If a variable is only used once, it should be defined as constant to save memory. The type of the variable should also be specified on creation, even if the language doesn't require it, unless it's made clear what type it is.
+
 #### Mutable
-Mutable variable names should begin with a lowercase letter, with uppercase letters for the beginning of each new word after the first, with words seperated by underscores.
+Mutable variable names should be in lowercase, with words seperated by underscores.
 
 ##### Kotlin:
 ```kotlin
@@ -129,6 +153,7 @@ my_variable = "Good bye, World!"
 my_variable: str = "Hello, World!"
 my_variable = "Good bye, World!"
 ```
+
 #### Constant
 Constant variable names should be in all-caps, like you forgot to turn off caps-lock, though actually, you wanted it on. Words, like mutable variable names, should be seperated by underscores.
 
@@ -141,6 +166,7 @@ val MY_VARIABLE: String = "Hello, World!"
 ```python
 MY_VARIABLE: str = "Hello, World!"
 ```
+
 ---
 
 ### Functions
@@ -170,6 +196,7 @@ def myFunc(name: str) -> None:
     """
     print(f"Hello, {name}")
 ```
+
 ---
 
 ### Classes
@@ -181,7 +208,7 @@ If the class is public, it must provide a public constructor.
 /**
  * Creates a vector of two values.
  */
-open class Vector2<T> {
+class Vector2<T> {
   /**
    * Constructs an instance, providing the x and y.
    * 
@@ -209,19 +236,25 @@ class Vector2(object):
        """
        pass
 ```
+
 #### Properties
 
 #### Methods
 
-#### Enums
+---
+
+### Enums
 Enums, like classes and functions, should always have a docstring to describe it, if the source is open, even if the enum is private.
+
+#### Prefix
+Unless the language uses a diffrent file extension for them, enum names should always begin with a capital "`E`" to differentiate them from classes at the file level.
 
 ##### Kotlin:
 ```kotlin
 /**
  * An enum for the primary colours.
  */
-enum class PrimaryColour {
+enum class EPrimaryColour {
     RED,
     YELLOW,
     BLUE
@@ -232,9 +265,10 @@ enum class PrimaryColour {
 ```python
 from enum import Enum
 
-class PrimaryColour(Enum):
+class EPrimaryColour(Enum):
     RED = 1
     YELLOW = 2
     BLUE = 3
 ```
+
 ---
